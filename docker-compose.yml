@@ -1,0 +1,34 @@
+services:
+  mcp-server:
+    build:
+      context: ./mcp-server/
+      dockerfile: Dockerfile
+    container_name: mcp-server
+    ports:
+      - "8000:8000"
+    command: ["python", "server.py"]     
+    restart: unless-stopped
+    volumes:
+      - "${TOOLS_PATH}:/app/tools"
+
+  mcp-inspector:
+    image: ghcr.io/modelcontextprotocol/inspector:latest
+    container_name: mcp-official-inspector
+    ports:
+      - "127.0.0.1:6274:6274" 
+      - "127.0.0.1:6277:6277" 
+
+  deepseek-harness:
+
+    build: { context: ./deepseek-harness/, dockerfile: Dockerfile }
+    image: deepseek-harness-custom
+    container_name: dsh-harness
+    restart: unless-stopped
+    env_file: [.env]
+    ports: ["3080:3080"]
+
+    volumes:
+      - ${HOST_SETTINGS_PATH}:/root/.dsh
+      - ${HOST_PROJECT_PATH}:/workspace
+      - ${SKILLS_PATH}:/root/.dsh/skills
+
