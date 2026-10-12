@@ -6,11 +6,9 @@
 import'ов ниже — server.py про них ничего не знает.
 """
 
-from . import calculator
-from . import code_reviewer
+from . import plantuml
 
 
 def register_tools(mcp) -> None:
     """Зарегистрировать все инструменты и промпты в приложении FastMCP."""
-    calculator.register(mcp)
-    code_reviewer.register(mcp)
+    plantuml.register(mcp)

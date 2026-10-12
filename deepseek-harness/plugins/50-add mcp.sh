@@ -52,6 +52,22 @@ cat >> "$TMP" <<'EOF'
           initialDelayMs: 500
           maxDelayMs: 30000
           maxAttempts: 10
+    - id: mcp-fileserver
+      name: "@deepseek-ai/dsh-mcp-client"
+      disabled: false
+      config:
+        transport: streamable-http
+        serverName: mcp-fileserver
+        url: http://mcp-fileserver:8001/mcp
+        headers: {}
+        toolCallTimeoutMs: 60000
+        failOnStartupError: false
+        maxInstructionBytes: 32768
+        reconnect:
+          enabled: true
+          initialDelayMs: 500
+          maxDelayMs: 30000
+          maxAttempts: 10
 
 # dsh-skill-mcp:managed-end
 EOF

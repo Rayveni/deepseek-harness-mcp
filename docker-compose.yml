@@ -11,6 +11,22 @@ services:
     volumes:
       - "${TOOLS_PATH}:/app/tools"
 
+  mcp-fileserver:
+    build:
+      context: ./file-server/
+      dockerfile: Dockerfile
+    container_name: mcp-fileserver
+    ports:
+      - "8001:8001"
+    command: ["python", "server.py"]
+    environment:
+      - FILES_ROOT=/workspace
+    volumes:
+      # Файловому серверу монтируется папка проекта — его рабочая область
+      - ${HOST_PROJECT_PATH}:/workspace
+      - "${TOOLS_PATH_2}:/app/tools"
+    restart: unless-stopped      
+
   mcp-inspector:
     image: ghcr.io/modelcontextprotocol/inspector:latest
     container_name: mcp-official-inspector
