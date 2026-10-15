@@ -1,0 +1,10 @@
+{
+  "skill": "resource-migrator",
+  "categories": ["templates", "references", "checklists", "examples", "schemas"],
+  "assetPathPattern": "assets/<skill>/<category>/<name>",
+  "loadMethods": [
+    "get_asset",
+    "render_asset",
+    "list_assets"
+  ]
+}

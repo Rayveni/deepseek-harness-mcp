@@ -36,12 +36,12 @@ fi
 cat >> "$TMP" <<'EOF'
 # dsh-skill-mcp:managed-start
 - insert:
-    - id: mcp_test
+    - id: mcp_baseserver
       name: "@deepseek-ai/dsh-mcp-client"
       disabled: false
       config:
         transport: streamable-http
-        serverName: mcp_test
+        serverName: mcp_baseserver
         url: http://mcp-server:8000/mcp
         headers: {}
         toolCallTimeoutMs: 60000

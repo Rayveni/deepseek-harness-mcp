@@ -1,0 +1,28 @@
+{
+  "resourceTypes": [
+    {"category": "templates", "name": "report.md", "loadMethod": "get_asset / render_asset (header keys only)"},
+    {"category": "references", "name": "check-criteria.md", "loadMethod": "get_asset (full or by section)"},
+    {"category": "references", "name": "resource-categories.md", "loadMethod": "get_asset"},
+    {"category": "checklists", "name": "verification.md", "loadMethod": "get_asset"},
+    {"category": "checklists", "name": "migration.md", "loadMethod": "get_asset"},
+    {"category": "schemas", "name": "resource-types.json", "loadMethod": "get_asset"},
+    {"category": "examples", "name": "sample-resource.md", "loadMethod": "get_asset"}
+  ],
+  "pattern": "assets/requirements-checker/<category>/<name>",
+  "renderKeys": {
+    "templates/report.md": ["date_time", "source_file", "checker", "criteria_version"]
+  },
+  "sectionSelector": {
+    "format": "full heading text as it appears in check-criteria.md",
+    "examples": [
+      "1. Полнота (Completeness)",
+      "6. Однозначность и измеримость (Unambiguity & Measurability)",
+      "10. Качество открытых вопросов (Open Questions quality)"
+    ]
+  },
+  "knownPrefixes": [
+    "G", "KPI", "BR", "StR", "FR", "NFR", "BRU",
+    "CON", "ASM", "DEP", "INT", "DAT", "RISK",
+    "GLOSS", "US", "AC", "TC", "Q"
+  ]
+}

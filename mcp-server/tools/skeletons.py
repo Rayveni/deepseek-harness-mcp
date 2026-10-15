@@ -6,7 +6,7 @@ in context. Placeholders are in angle brackets <...>.
 """
 
 SKELETONS: dict[str, str] = {
-    "activity": """@startuml
+    'activity': """@startuml
 title <title>
 start
 :<step 1>;
@@ -18,7 +18,7 @@ endif
 stop
 @enduml
 """,
-    "sequence": """@startuml
+    'sequence': """@startuml
 title <title>
 actor <actor>
 participant "<participant>" as a
@@ -28,7 +28,7 @@ a -> b : <request>
 b --> a : <response>
 @enduml
 """,
-    "component": """@startuml
+    'component': """@startuml
 title <title>
 skinparam componentStyle rectangle
 package "<boundary>" {
@@ -38,7 +38,7 @@ package "<boundary>" {
 c1 --> c2 : <relation>
 @enduml
 """,
-    "deployment": """@startuml
+    'deployment': """@startuml
 title <title>
 node "<cluster>" {
   artifact "<artifact>" as a
@@ -47,7 +47,7 @@ node "<cluster>" {
 a --> db
 @enduml
 """,
-    "class": """@startuml
+    'class': """@startuml
 title <title>
 class "<class>" as c1 {
   +<field>: <type>
@@ -57,7 +57,7 @@ class "<class>" as c2
 c1 --> c2 : <relation>
 @enduml
 """,
-    "er": """@startuml
+    'er': """@startuml
 title <title>
 entity "<table>" as t1 {
   * id : <type> <<PK>>
@@ -71,7 +71,7 @@ entity "<table>" as t2 {
 t1 ||--o{ t2 : "<relation>"
 @enduml
 """,
-    "state": """@startuml
+    'state': """@startuml
 title <title>
 state "<state>" as s1
 state "<state>" as s2
@@ -80,7 +80,7 @@ s1 --> s2 : <event>
 s2 --> [*]
 @enduml
 """,
-    "usecase": """@startuml
+    'usecase': """@startuml
 left to right direction
 actor "<actor>" as a
 rectangle "<system>" {
@@ -91,7 +91,7 @@ a --> u1
 a --> u2
 @enduml
 """,
-    "gantt": """@startgantt
+    'gantt': """@startgantt
 title <title>
 Project starts <YYYY-MM-DD>
 [<task>] lasts <N> days
@@ -99,20 +99,20 @@ Project starts <YYYY-MM-DD>
 [<task 2>] starts at [<task>]'s end
 @endgantt
 """,
-    "wbs": """@startwbs
+    'wbs': """@startwbs
 * [<root>]
 ** [<branch 1>]
 *** [<leaf>]
 ** [<branch 2>]
 @endwbs
 """,
-    "mindmap": """@startmindmap
+    'mindmap': """@startmindmap
 * [<root>]
 ** [<branch 1>]
 ** [<branch 2>]
 @endmindmap
 """,
-    "comparison": """@startuml
+    'comparison': """@startuml
 title Comparison: AS IS vs TO BE
 package "Variant 1" #F9F9F9 {
   frame "AS IS" #FFF0F0 {

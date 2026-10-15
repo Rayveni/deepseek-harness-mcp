@@ -10,6 +10,7 @@ services:
     restart: unless-stopped
     volumes:
       - "${TOOLS_PATH}:/app/tools"
+      - "${ASSETS_PATH}:/app/assets"
 
   mcp-fileserver:
     build:
